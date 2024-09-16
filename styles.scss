@@ -1,0 +1,775 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+$poppins-font-family: 'Poppins', sans-serif;
+$inter-font-family: 'Inter', sans-serif;
+
+$white: #FFFFFF; 
+$lavender-gray: #D4CAEB; 
+$light-gray: #CCCCCC; 
+$soft-gray: #BBBBBB;
+$mid-gray: #999999; 
+$gray: #888888; 
+$dim-gray: #8888881A;
+$warm-gray: #7D7F78; 
+$medium-gray: #7A7A7A; 
+$charcoal: #333333; 
+$dark-gray: #262626; 
+$dark-gray-translucent: #17171799;
+$deep-gray: #0D0D0D; 
+$black: #000000;
+
+$gradient-soft-light: linear-gradient(9% #FFFFF7 10%, #727267FF 100%);
+$gradient-dark-contrast: linear-gradient(75% #0D0D0D00 0%, #0D0D0D 95%, #0D0D0DFF 100%);
+$gradient-deep-shadow: linear-gradient(180deg, 0% #00000000 0%, 15% #000000FF 100%, 85% #000000FF 100%, 100% #00000000 0%);
+$gradient-soft-white: linear-gradient(0% #FFFFF7FF 100%, 100% #FFFFFF57 34%);
+$gradient-deep-black: linear-gradient(0% #1E1E1EFF 100%, #141414FF 100%);
+$gradient-dark-gray: linear-gradient(0% #1F1F1FFF 100%, #141414FF 100%);
+$gradient-dark-shade: linear-gradient(0% #131313E3 89%, #000000FF 100%);
+$text-gradient: linear-gradient(67deg, #FFFFF7 0%, rgba(255, 255, 247, 0.34) 100%);
+
+$breakpoint-mobile-sm: 320px;
+$breakpoint-mobile-md: 375px;
+$breakpoint-mobile-lg: 428px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1024px;
+$breakpoint-desktop: 1440px;
+$breakpoint-desktop-lg: 1920px;
+
+@mixin font($family, $size, $weight, $line-height) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+
+@mixin respond-to($device) {
+  @if $device == mobile-sm {
+    @media (max-width: #{$breakpoint-mobile-sm}) {
+      @content;
+    }
+  } @else if $device == mobile-md {
+    @media (max-width: #{$breakpoint-mobile-md}) {
+      @content;
+    }
+  } @else if $device == mobile-lg {
+    @media (max-width: #{$breakpoint-mobile-lg}) {
+      @content;
+    }
+  } @else if $device == tablet {
+    @media (max-width: #{$breakpoint-tablet}) {
+      @content;
+    }
+  } @else if $device == laptop {
+    @media (max-width: #{$breakpoint-laptop}) {
+      @content;
+    }
+  } @else if $device == desktop {
+    @media (max-width: #{$breakpoint-desktop}) {
+      @content;
+    }
+  } @else if $device == desktop-lg {
+    @media (max-width: #{$breakpoint-desktop-lg}) {
+      @content;
+    }
+  }
+}
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: $deep-gray;
+    font-family: $inter-font-family;
+    color: $light-gray;
+  }
+  
+  nav {
+    background: linear-gradient(#0D0D0DFF 85%, #0D0D0D00 100%);
+    height: max-content;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    @include font($inter-font-family, 16px, 400, 20.8px);
+    transition: all 0.35s linear;
+
+    #navbar-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 32px 16px;
+      border-radius: 50px;
+      border: 1px solid $dark-gray;
+      background-color: $dark-gray-translucent;
+      @include respond-to('tablet'){
+        flex-direction: column;
+        position: fixed;
+        top: -100%;
+        width: 100%;
+        height: 100%;
+        padding: 32px;
+        row-gap: 10%;
+        transition: all 0.5s ease-in;
+        backdrop-filter: blur(20px);
+        border-radius: 0;
+        @include font($inter-font-family, 28px, 400, 22px);
+      }
+
+      #tenmar_mobile{
+        display: none;
+        
+        @include respond-to('tablet'){
+          display: block;
+        }
+      }
+    }
+
+    .visible{
+      display: block;
+      transform: translateY(100%);
+    }
+
+    #hamburger-button{
+      display: none;
+      background: none;
+      border-radius: 5px;
+      padding: 5px;
+      border: none;
+      z-index: 100;
+      @include respond-to('tablet'){
+        display: block;
+      }
+      #hamburger-menu {
+        width: 40px;
+        height: 30px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      
+        #hamburger-icon {
+          position: relative;
+          width: 35px;
+          height: 3px;
+          background-color: $lavender-gray;
+          transition: all 0.3s ease;
+          
+          &:before, &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color:  $lavender-gray;
+            transition: all 0.3s ease;
+          }
+      
+          &:before {
+            top: -10px;
+          }
+      
+          &:after {
+            top: 10px;
+          }
+        }
+      }
+      
+      &.active #hamburger-menu #hamburger-icon {
+        background-color: transparent; 
+    
+        &:before {
+          transform: rotate(45deg);
+          top: 0;
+        }
+    
+        &:after {
+          transform: rotate(-45deg);
+          top: 0;
+        }
+      }
+    }
+    .contact-button {
+      padding: 16px 28px;
+      border: 1px solid $dark-gray;
+      border-radius: 50px;
+      background-color: $dark-gray-translucent;
+      color: $light-gray;
+      @include font($inter-font-family, 16px, 500, 20.8px);
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color .3s;
+      
+      &:hover {
+        border-color: $light-gray;
+      }
+      
+      @include respond-to('laptop'){
+        display: none;
+      }
+    }
+  }
+
+  
+  #linear-gradient {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    padding: 0.5px 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 5;
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.00) 75%, #0D0D0D 95%);
+    pointer-events: none !important;
+  }
+  
+  
+  #navbar-header a, footer a {
+    margin: 0 15px;
+    color: $medium-gray;
+    text-decoration: none;
+    transition: color .3s;
+    
+    &:hover {
+      color: $light-gray;
+    }
+  }
+  
+  
+  section {
+    width: calc(100%*2/3);
+    margin: auto;
+    padding: 96px 0;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    &.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    &:last-child{
+      margin-bottom: 96px;
+    }
+    @include respond-to('tablet'){
+      padding: 48px 0;
+    }
+    @include respond-to('mobile-lg'){
+      padding: 24px 0;
+    }
+  }
+  
+  h1 {
+    text-align: center;
+    @include font($poppins-font-family, 80px, 500, 92px);
+    padding-bottom: 10px;
+    position: relative;
+    letter-spacing: -2.4px;
+    background-image: linear-gradient(2005deg, rgb(255, 255, 247) 8.55094%, rgb(114, 114, 103) 107.012%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @include respond-to('tablet'){
+      @include font($poppins-font-family, 55px, 500, 65px);
+    }
+    @include respond-to('mobile-lg'){
+      @include font($poppins-font-family, 40px, 500, 50px);
+    }
+  }
+  
+  h2 {
+    color: $lavender-gray;
+    text-align: center;
+    @include font($inter-font-family, 18px, 400, 25.2px);
+    letter-spacing: -0.18px;
+    margin-bottom: 16px;
+  }
+  
+  h3 {
+    @include font($poppins-font-family, 44px, 400, 52.8px);
+    letter-spacing: -1.32px;
+    text-align: center;
+    span {
+      color: $lavender-gray;
+    }
+
+    @include respond-to('tablet'){
+      @include font($poppins-font-family, 38px, 400, 50px);
+    }
+    @include respond-to('mobile-lg'){
+      @include font($poppins-font-family, 32px, 400, 40px);
+    }
+  }
+  
+  h4{
+    @include font($poppins-font-family, 38px, 400, 41.8px);
+    letter-spacing: -1.14px;
+
+    @include respond-to('tablet'){
+      @include font($poppins-font-family, 35px, 400, 38px);
+    }
+    @include respond-to('mobile-lg'){
+      @include font($poppins-font-family, 30px, 400, 35px);
+    }
+  }
+  #hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 34%;
+    min-width: 650px;
+    max-width: 1920px;
+    row-gap: 32px;
+    margin: auto;
+    margin-top: 120px;
+    @include respond-to('tablet'){
+      min-width: 350px;
+    }
+    p {
+      text-align: center;
+      color: $warm-gray;
+    }
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    min-width: 300px;
+    width: 100%;
+    padding: 20px;
+    max-width: 550px;
+    
+    * {
+      color: $mid-gray;
+      margin-bottom: 10px;
+    }
+    
+    input {
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      align-self: stretch;
+      border-radius: 10px;
+      border: 1px solid $dim-gray;
+      background-color: #bbbbbb26;
+      padding: 12px;
+      
+      &:focus {
+        outline: 1px solid $gray;
+      }
+    }
+    
+    span{
+      text-align: center;
+      color: $lavender-gray;
+    }
+    .hidden{
+      display: none !important;
+    }
+    textarea:focus, input:focus {
+      outline: 1px solid $gray;
+    }
+    
+    button {
+      margin-top: 20px;
+      cursor: pointer;
+      padding: 11px;
+      border-radius: 10px;
+      background-color: #bbbbbb26;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    button:hover{
+      background-color: #bbbbbb52;
+      color: $light-gray;
+    }
+    .loader {
+      width: 48px;
+      height: 48px;
+      margin: 15px auto;
+      border: 5px solid $charcoal;
+      border-bottom-color: $lavender-gray;
+      border-radius: 50%;
+      display: inline-block;
+      box-sizing: border-box;
+      animation: rotation 1s linear infinite;
+      }
+  
+      @keyframes rotation {
+      0% {
+          transform: rotate(0deg);
+      }
+      100% {
+          transform: rotate(360deg);
+      }
+      } 
+      .submit-message{
+        width: 100%;
+        padding: 10px;
+        border-radius: 15px;
+        border-width: 1px;
+        border-style: solid;
+      }
+      .success-submit-message{
+        background-color: #d4edda;
+        color: #155724;
+        border-color: #c3e6cb;
+      }
+      .error-submit-message{
+        background-color: #f8d7da;;
+        color: #721c24;
+        border-color: #f5c6cb;
+      }
+  }
+  #carousel, hr {
+    mask-image: linear-gradient(to right, #00000000 0%, #000000 15%, #000000 85%, #00000000 100%);
+    color: $charcoal;
+  }
+  hr{
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    height: 1px;
+    &.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  #carousel {
+    max-width: 90vw;
+    width: 150%;
+    overflow: hidden;
+    padding: 20px;
+    border-radius: 10px;
+    
+    #carousel-wrapper {
+      width: 100%;
+      display: flex;
+      animation: moveLeft 16s linear infinite; 
+      gap: 99px;
+
+      span {
+        width: auto;
+        color: #4a4a4a;
+        text-align: center;
+        @include font($poppins-font-family, 28px, 800, auto);
+        white-space: nowrap;
+      }
+    }
+
+    @keyframes moveLeft {
+      0% {
+        transform: translateX(0); 
+      }
+      100% {
+        transform: translateX(calc(-300px*7));
+      }
+    }
+  }
+  #what-is-tenmar{
+    max-width: 840px;
+    @include respond-to('laptop'){
+      max-width: inherit;
+    }
+  }
+  #services h3, #team h3, #faq h3{
+      padding-bottom: 2px;
+      background-image: $text-gradient;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+  }
+  
+  #services-cards {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    height: auto;
+    column-gap: 31px;
+    row-gap: 60px;
+    @include respond-to('laptop'){
+      flex-direction: column !important;
+      justify-content: center;
+    }
+    .card {
+      min-width: 330px;
+      padding: 40px;
+      border-radius: 30px;
+      flex: 1 1 calc(30%);
+      background-image: linear-gradient(180deg, #1F1F1F 0%, #141414 100%);
+      column-gap: 40px;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+      @include respond-to('desktop'){
+        width: 100%;
+        row-gap: 40px;
+        flex-direction: column-reverse;
+        justify-content: start;
+        align-items: center;
+      }
+      @include respond-to('mobile-lg'){
+        min-width: 100%;
+      }
+      .card-content{
+        min-width: 245px;
+        @include respond-to('desktop'){
+          min-width: auto !important;
+        }
+        h4{
+          @include font($inter-font-family, 26px, 400, 31.2px);
+          letter-spacing: -0.52px !important;
+          margin-bottom: 10px !important;
+        }
+        
+        p {
+          @include font($inter-font-family, 18px, 400, 25.2px);
+          letter-spacing: -0.18px;
+          color: $medium-gray;
+        }
+      }
+      svg{
+        overflow: visible;
+        width: 200%;
+        height: 170px;
+        @include respond-to('desktop'){
+          height: 173px;
+          width: 282px;
+        }
+      }
+    }
+  }
+  #services-minicards{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    column-gap: 24px;
+    row-gap: 24px;
+    @include respond-to('tablet'){
+      display: none;
+    }
+    .minicard{
+      width: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-radius: 14px;
+      background-color: #161616;
+      border: 1px solid $dark-gray;
+      column-gap: 8px;
+      padding: 16px 20px;
+      height: 58px;
+      img{
+        height: 100%;
+      }
+    }
+  }
+  #team-photo {  
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 32px;
+    height: min-content;
+    justify-content: center;
+    max-width: 1280px;
+    overflow: visible;
+    padding: 0 110px;
+    position: relative;
+    @include respond-to('desktop'){
+      padding: 0;
+    }
+    @include respond-to('laptop'){
+      width: 100%;
+      flex-direction: column-reverse;
+      text-align: center;
+      padding: 0;
+    }
+    #team-wrapper{
+      display: flex;
+      width: auto;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      flex-shrink: 0;
+      max-height: 300px;
+      max-width: 375px;
+      width: 50%;
+      height: auto;
+      overflow: hidden;
+      border-radius: 25px;
+      @include respond-to('tablet'){
+        width: 100% !important;
+      }
+      img {
+        flex: 1 0 0;
+        align-self: stretch;  
+      }
+    }
+  }
+  
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1px;
+    margin-top: 58px;
+
+    .active{
+      background-color: #161616;
+      
+      button .icon {
+        transform: rotate(45deg) !important;
+        color: $light-gray !important;
+      }
+    }
+    .accordion-item {
+      border-radius: 24px;
+      padding: 24px;
+
+      .accordion-header {
+        margin-bottom: 12px;
+        width: 100%;
+        text-align: left;
+        border-radius: 24px;
+        color: $lavender-gray;
+        border: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-family: $inter-font-family;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26px;
+        letter-spacing: -0.2px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        padding-right: 20px;
+      }
+  
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        color: $medium-gray;
+        padding-right: 20px;
+        font-family: $inter-font-family;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 25.2px;
+        letter-spacing: -0.18px;
+      }
+
+      button{
+        background: none;
+        border: none;
+        color: $lavender-gray;
+        cursor: pointer;
+        .icon {
+          color: $medium-gray;
+          font-size: 25px;
+          display: inline-block;
+          transition: all 0.3s ease, content 0.3s ease;
+          transform: rotate(0deg);
+        }
+      }
+      &.active .accordion-content {
+        max-height: 150px;
+      }
+    }
+  }
+  #faq-contact{
+    margin-top: 58px;
+    color: $medium-gray;
+    @include font($inter-font-family, 16px, 400, 140%);
+    letter-spacing: -0.18px;
+    a{
+      text-decoration: none;
+      color: $lavender-gray;
+    }
+    @include respond-to('mobile-lg'){
+      text-align: center;
+    }
+  }
+
+  #contact{
+    border-radius: 24px;
+    padding: 60px 60px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 32px;
+    background-image: linear-gradient(135deg, #1A1A1A 0%, #0D0D0D 100%);
+    
+    @include respond-to('tablet'){
+      padding: 60px 16.6%;
+      width: 95vw;
+    }
+    @include respond-to('mobile-lg'){
+      width: 100vw;
+      padding: 15px;
+      margin-top: 25px;
+    }
+    h3{
+      max-width: 560px;
+      font-size: 54px;
+      @include respond-to('tablet'){
+        @include font($poppins-font-family, 38px, 400, 50px);
+      }
+      @include respond-to('mobile-lg'){
+        @include font($poppins-font-family, 32px, 400, 40px);
+      }
+    }
+  }
+  
+  footer {
+    margin-top: auto;
+    margin-bottom: 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $black;
+    padding: 0 60px;
+
+    @include respond-to('tablet'){
+      flex-direction: column;
+      padding:25px 0;
+      margin: 0;
+      height: 100%;
+    }
+    #footer-links{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      @include respond-to('tablet'){
+        padding: 30px 0;
+        row-gap: 20px;
+        flex-direction: column;
+      }
+    }
+  }
+  
