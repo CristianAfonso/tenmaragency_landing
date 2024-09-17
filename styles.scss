@@ -459,6 +459,10 @@ $breakpoint-desktop-lg: 1920px;
       animation: moveLeft 16s linear infinite; 
       gap: 99px;
 
+
+      &.english{
+        gap: 101px !important;
+      }
       span {
         width: auto;
         color: #4a4a4a;
