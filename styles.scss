@@ -459,10 +459,10 @@ $breakpoint-desktop-lg: 1920px;
       animation: moveLeft 16s linear infinite; 
       gap: 99px;
 
-
-      &.english{
+      & .english{
         gap: 101px !important;
       }
+
       span {
         width: auto;
         color: #4a4a4a;
@@ -470,6 +470,7 @@ $breakpoint-desktop-lg: 1920px;
         @include font($poppins-font-family, 28px, 800, auto);
         white-space: nowrap;
       }
+      
     }
 
     @keyframes moveLeft {
