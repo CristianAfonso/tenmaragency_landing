@@ -96,8 +96,9 @@ document.addEventListener('DOMContentLoaded', function() {
           const name = escapeHTML(formData.get('nombre'));
           const email = escapeHTML(formData.get('email'));
           const phone = escapeHTML(formData.get('telefono'));
+          const message = escapeHTML(formData.get('message'));
           const lang = escapeHTML(formulario.classList[0])
-          sendData(name, email, phone, lang)
+          sendData(name, email, phone, message, lang)
       });
   });
 });
@@ -152,21 +153,22 @@ function toggleLoadersAndButtons(){
   })
 }
 
-function sendData(name, email, phone, lang) {
+function sendData(name, email, phone, message, lang) {
   const success_span = document.querySelectorAll('.success-submit-message');
   const error_span = document.querySelectorAll('.error-submit-message');
   if(!validateForm(name, email, phone)){
       console.log("error")
       return;
   }
-  var data = new FormData();
+  let data = new FormData();
   data.append("name", name);
   data.append("phone", phone);
   data.append("email", email);
+  data.append("message", message);
   data.append("lang", lang);
-  var xhr = new XMLHttpRequest();
+  let xhr = new XMLHttpRequest();
 
-  xhr.open("POST", "https://script.google.com/macros/s/AKfycbwK7A1RKtKNuIAxP4g5pdSZEK-FlHZaKuCBn4TxT_sLTDeHHPRUJ1c3PQFY2-RRUEMP/exec");
+  xhr.open("POST", "https://script.google.com/macros/s/AKfycbyelFMn-BUkxYe3qv2SV3228gqOQRwtbH0pqUu7u5DIIbJ-vlwy5_nYeIjceCXFhVJ2/exec");
   xhr.send(data);
   xhr.onload = function() {
     toggleLoadersAndButtons();

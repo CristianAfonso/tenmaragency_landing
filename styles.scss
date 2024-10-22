@@ -282,10 +282,13 @@ $breakpoint-desktop-lg: 1920px;
     @include respond-to('desktop-lg'){
       @include font($poppins-font-family, 91px, 500, 91px)
     }
+    @include respond-to('desktop'){
+      @include font($poppins-font-family, 73px, 500, 75px)
+    }
     @include respond-to('tablet'){
-      width: 100%;
+      max-width: 100vw;
       white-space: wrap;
-      @include font($poppins-font-family, 55px, 500, 65px);
+      @include font($poppins-font-family, 53px, 500, 65px);
     }
     @include respond-to('mobile-lg'){
       @include font($poppins-font-family, 40px, 500, 50px);
@@ -411,7 +414,7 @@ $breakpoint-desktop-lg: 1920px;
       max-width: inherit;
     }
   }
-  #services h3, #team h3, #faq h3{
+  #services h3, #team h3, #faq h3, #what-is-tenmar h3{
       padding-bottom: 2px;
       background-image: $text-gradient;
       background-clip: text;
@@ -419,6 +422,13 @@ $breakpoint-desktop-lg: 1920px;
       -webkit-text-fill-color: transparent;
       max-width: 840px !important;
       margin: auto;
+
+      @include respond-to('desktop'){
+        @include font($poppins-font-family, 36px, 400, 120%)
+      }
+      @include respond-to('tablet'){
+        @include font($poppins-font-family, 30px, 400, 120%)
+      }
   }
   
   #services-cards {
@@ -635,6 +645,7 @@ $breakpoint-desktop-lg: 1920px;
     text-align: center;
     @include font($inter-font-family, 16px, 400, 140%);
     letter-spacing: -0.18px;
+    white-space: nowrap;
     a{
       text-decoration: none;
       color: $lavender-gray;
@@ -643,6 +654,7 @@ $breakpoint-desktop-lg: 1920px;
       }
     }
     @include respond-to('mobile-lg'){
+      white-space: pre-wrap;
       text-align: center;
     }
   }
@@ -650,6 +662,9 @@ $breakpoint-desktop-lg: 1920px;
   #contact{
     padding: 0 40px;
     width: 100%;
+    @include respond-to('mobile-lg'){
+      padding: 0;
+    }
     .contact-wrapper{
       padding: 60px 40px;
       margin: auto;
@@ -664,12 +679,11 @@ $breakpoint-desktop-lg: 1920px;
       
       @include respond-to('tablet'){
         padding: 60px 16.6%;
-        width: 95%;
+        width: 100%;
       }
       @include respond-to('mobile-lg'){
         width: 100%;
-        padding: 15px;
-        margin-top: 25px;
+        padding: 25px;
       }
       h2{
         width: 100%;
@@ -701,13 +715,19 @@ $breakpoint-desktop-lg: 1920px;
     width: 100%;
     padding: 20px;
     max-width: 550px;
-    
+    overflow: hidden;
+    @include respond-to('tablet'){
+      min-width: 0;
+      max-width: 100%;
+    }
     * {
       margin-bottom: 10px;
+      max-width: 100%;
     }
     
     label{
       color: $white;
+      @include font($inter-font-family, 25px, 500, 1.2em);
     }
     input{
       height: 40px;
@@ -722,8 +742,10 @@ $breakpoint-desktop-lg: 1920px;
       align-self: stretch;
       background-color: inherit;
       padding: 12px;
-      max-width: 100%;
       min-height: 40px;
+      @include respond-to('mobile-lg'){
+        width: 100%;
+      }
       &:focus {
         border-radius: 10px;
         border: 1px solid $dim-gray;
@@ -743,17 +765,27 @@ $breakpoint-desktop-lg: 1920px;
     }
     
     button {
+      background: linear-gradient(187deg, $light-gray -59%, $medium-gray 42%, $dark-gray 121%);
+      @include font($inter-font-family, 14px, 600, 1.2em);
       margin-top: 20px;
       cursor: pointer;
       padding: 11px;
       border-radius: 10px;
-      background-color: #bbbbbb26;
+      color: $white;
       border: none;
-      transition: all 0.3s ease;
+      max-width: 100%;
+      -webkit-transition: all 0.3s ease-out;
+      -moz-transition: all 0.3s ease-out;
+      -o-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+     -moz-background-size: 200% 100%;
+     -o-background-size: 200% 100%;
+     -webkit-background-size: 200% 100%;
+     background-size: 200% 100%;
     }
     button:hover{
-      background-color: #bbbbbb52;
-      color: $light-gray;
+      background-position: -100%;
+      color: $deep-gray;
     }
     .loader {
       width: 48px;
@@ -803,12 +835,11 @@ $breakpoint-desktop-lg: 1920px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: $black;
-    padding: 0 60px;
-
-    @include respond-to('tablet'){
+    padding: 60px;
+    @include respond-to('desktop'){
       flex-direction: column;
-      padding:25px 0;
+      row-gap: 30px;
+      padding:50px 0;
       margin: 0;
       height: 100%;
     }
@@ -817,10 +848,16 @@ $breakpoint-desktop-lg: 1920px;
       flex-direction: row;
       justify-content: space-evenly;
       align-items: center;
-      @include respond-to('tablet'){
+      @include respond-to('mobile-lg'){
         padding: 30px 0;
         row-gap: 20px;
         flex-direction: column;
+      }
+    }
+    p{
+      color: $white;
+      span{
+        color: $light-gray;
       }
     }
   }
