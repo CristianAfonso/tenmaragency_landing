@@ -53,85 +53,43 @@
     <div id="linear-gradient"></div>
     <main>
         <section id="hero">
-            <h1>Agencia de Marketing Digital</h1>
-            <p>Soluciones de marketing innovadoras para marcas
-                que buscan un crecimiento impactante y una
-                presencia dinámica.</p>
-                <form class="spanish-form">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                    <span class="hidden"  id="name_validation">Por favor, introduzca un nombre válido.</span>
-                    <label for="email">Correo Electrónico</label>
-                    <input type="email" id="email" name="email" required>
-                    <span class="hidden" id="email_validation">Por favor, introduzca un email válido.</span>
-                    <label for="telefono">Número de Teléfono</label>
-                    <input type="tel" id="telefono" name="telefono" required>
-                    <span class="hidden" id="phone_validation">Por favor, introduzca un teléfono válido.</span>
-                    <button class="submit-button" type="submit">Enviar</button>
-                    <div class="loader hidden"></div>
-                    <span class="success-submit-message submit-message hidden">¡Tu mensaje ha sido enviado exitosamente! Recibirás una respuesta en breve.</span>
-                    <span class="error-submit-message submit-message hidden">Ocurrió un error al enviar el formulario. Por favor, vuelva a intentarlo en unos minutos.</span>
-                </form>
-            <p>Sectores en los que trabajamos</p>
+            <h1>Agencia de <br> Marketing Digital</h1>
+            <div class="hero-framer">
+                <p>Soluciones de marketing innovadoras para marcas que buscan un crecimiento impactante y una presencia dinámica</p>
+            </div>
+            </section>
+            <section id="what-is-tenmar">
+                <h2>¿QUÉ ES TENMAR?</h2>
+                <h3>Tenmar es una agencia de marketing
+                    digital <span> que ofrece soluciones
+                    personalizadas para potenciar la
+                    presencia y el</span> crecimiento de tu marca
+                    <span>con estrategias innovadoras y efectivas</span>.</h3>
+            </section>
+            <section id="services">
+                <h2>SERVICIOS</h2>
+                <h3>Servicios diseñados para potenciar la
+                    presencia de tu marca de forma tangible.
+                </h3>
             <div id="carousel">
                 <div id="carousel-wrapper">
-                    <span>
-                        Lujo
-                    </span>
-                    <span>
-                        Inmobiliario
-                    </span>
-                    <span>
-                        Turismo y viajes
-                    </span>
-                    <span>
-                        Startups
-                    </span>
-                    <span>
-                        Educación y formación
-                    </span>
-                    <span>
-                        Deportes
-                    </span>
-                    <span>
-                        Gastronomía y Bebidas
-                    </span>
-                    <span>
-                        Lujo
-                    </span>
-                    <span>
-                        Inmobiliario
-                    </span>
-                    <span>
-                        Turismo y viajes
-                    </span>
-                    <span>
-                        Startups
-                    </span>
-                    <span>
-                        Educación y formación
-                    </span>
-                    <span>
-                        Deportes
-                    </span>
-                    <span>
-                        Gastronomía y Bebidas
-                    </span>
+                    <img alt="Logo de Nolan"            src="./public/carousel/NOLANLogos_tenmar.png"> 
+                    <img alt="Logo de Las Casas"        src="./public/carousel/LAS_CASASLogos_tenmar.png"> 
+                    <img alt="Logo de Watch Madrid"     src="./public/carousel/WATCHLogos tenmar.png"> 
+                    <img alt="Logo de Drip Tenerife"    src="./public/carousel/DRIPLogos_tenmar.png"> 
+                    <img alt="Logo de Bamba negra"      src="./public/carousel/BAMBALogos_tenmar.png"> 
+                    <img alt="Logo de Nolan"            src="./public/carousel/NOLANLogos_tenmar.png"> 
+                    <img alt="Logo de Las Casas"        src="./public/carousel/LAS_CASASLogos_tenmar.png"> 
+                    <img alt="Logo de Watch Madrid"     src="./public/carousel/WATCHLogos tenmar.png"> 
+                    <img alt="Logo de Drip Tenerife"    src="./public/carousel/DRIPLogos_tenmar.png"> 
+                    <img alt="Logo de Bamba negra"      src="./public/carousel/BAMBALogos_tenmar.png"> 
+                    <img alt="Logo de Nolan"            src="./public/carousel/NOLANLogos_tenmar.png"> 
+                    <img alt="Logo de Las Casas"        src="./public/carousel/LAS_CASASLogos_tenmar.png"> 
+                    <img alt="Logo de Watch Madrid"     src="./public/carousel/WATCHLogos tenmar.png"> 
+                    <img alt="Logo de Drip Tenerife"    src="./public/carousel/DRIPLogos_tenmar.png"> 
+                    <img alt="Logo de Bamba negra"      src="./public/carousel/BAMBALogos_tenmar.png"> 
                 </div>
             </div>
-        </section>
-        <section id="what-is-tenmar">
-            <h2>¿QUÉ ES TENMAR?</h2>
-            <h3>Tenmar es una agencia de marketing
-                digital <span> que ofrece soluciones
-                personalizadas para potenciar la
-                presencia y el</span> crecimiento de tu marca
-                <span>con estrategias innovadoras y efectivas</span>.</h3>
-        </section>
-        <section id="services">
-            <h2>SERVICIOS</h2>
-            <h3>Servicios diseñados para potenciar la
-                presencia de tu marca de forma tangible.</h3>
             <div id="services-cards">
                 <div class="card">
                     <div class="card-content">
@@ -286,6 +244,7 @@
                             Aseguramos que cada detalle se ajuste a tus expectativas.
                         </p>
                     </div>
+                    <img alt="Comunicación constante" src="./public/visual.png">
                 </div>
             </div>
             <div id="services-minicards">
@@ -368,23 +327,28 @@
             <p id="faq-contact">¿Tienes más preguntas? <a href="#contacto">Contáctanos</a></p>
         </section>
         <section id="contact">
-            <h3>Mejora la forma en como llega a tu cliente potencial</h3>
-            <p>Sin las complicaciones de contratar personal. El marketing con Tenmar</p>
-            <form class="spanish-form">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required>
-                <span class="hidden" id="name_validation">Por favor, introduzca un nombre válido.</span>
-                <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" name="email" required>
-                <span class="hidden" id="email_validation">Por favor, introduzca un email válido.</span>
-                <label for="telefono">Número de Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" required>
-                <span class="hidden" id="phone_validation">Por favor, introduzca un teléfono válido.</span>
-                <button class="submit-button" type="submit">Enviar</button>
-                <div class="loader hidden"></div>
-                <span class="success-submit-message submit-message hidden">¡Tu mensaje ha sido enviado exitosamente! Recibirás una respuesta en breve.</span>
-                <span class="error-submit-message submit-message hidden">Ocurrió un error al enviar el formulario. Por favor, vuelva a intentarlo en unos minutos.</span>
-            </form>
+            <div class="contact-wrapper">
+                <h2>Mejora la forma en como llega a tu cliente potencial</h2>
+                <p>Sin las complicaciones de contratar personal.<br>El marketing con Tenmar</p>
+                <form class="spanish-form">
+                    <label for="nombre" >Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="| Pon tu nombre aquí" required>
+                    <span class="hidden" id="name_validation">Por favor, introduzca un nombre válido.</span>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="| Pon tu email aquí" required>
+                    <span class="hidden" id="email_validation">Por favor, introduzca un email válido.</span>
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="| Pon tu teléfono aquí" required>
+                    <span class="hidden" id="phone_validation">Por favor, introduzca un teléfono válido.</span>
+                    <label for="message">¿Qué necesitas?</label>
+                    <textarea id="message" rows="7" cols="50" name="message" placeholder="| Pon tu mensaje aquí"></textarea>
+                    <span class="hidden" id="message_validation">Por favor, introduzca un mensaje válido.</span>
+                    <button class="submit-button" type="submit">Enviar</button>
+                    <div class="loader hidden"></div>
+                    <span class="success-submit-message submit-message hidden">¡Tu mensaje ha sido enviado exitosamente! Recibirás una respuesta en breve.</span>
+                    <span class="error-submit-message submit-message hidden">Ocurrió un error al enviar el formulario. Por favor, vuelva a intentarlo en unos minutos.</span>
+                </form>
+            </div>
         </section>
     </main>
 
