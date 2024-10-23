@@ -101,6 +101,12 @@ $breakpoint-desktop-lg: 1920px;
     @include font($inter-font-family, 16px, 400, 20.8px);
     transition: all 0.35s linear;
 
+    .tenmar_logo{
+      width: 150px;
+      height: auto;
+      aspect-ratio: auto;
+    }
+
     #navbar-header {
       display: flex;
       justify-content: center;
