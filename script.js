@@ -168,7 +168,7 @@ function sendData(name, email, phone, message, lang) {
   data.append("lang", lang);
   let xhr = new XMLHttpRequest();
 
-  xhr.open("POST", "https://script.google.com/macros/s/AKfycbyelFMn-BUkxYe3qv2SV3228gqOQRwtbH0pqUu7u5DIIbJ-vlwy5_nYeIjceCXFhVJ2/exec");
+  xhr.open("POST", "https://script.google.com/macros/s/AKfycbzhn4MLWPeD0URjFYytANkFSM62uLqPEmMnUFt_VWS7LRXNns39R1BwvZYKAnir0cS7Kg/exec");
   xhr.send(data);
   xhr.onload = function() {
     toggleLoadersAndButtons();
