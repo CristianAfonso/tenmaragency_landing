@@ -7,7 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const menu = document.getElementById('navbar-header');
 
     window.onscroll = function() {
+      
       const currentScrollPos = window.scrollY;
+      
+      if (currentScrollPos < 0) return; //SAFARI Rebound
+
       if (prevScrollPos < currentScrollPos) {
         nav.style.top = `${heightOffset}px`;
         hamburgerMenu.classList.remove('active');

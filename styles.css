@@ -590,7 +590,6 @@ hr.fade-in {
   flex-shrink: 0;
   max-height: 300px;
   max-width: 375px;
-  width: 50%;
   height: auto;
   overflow: hidden;
   border-radius: 25px;
@@ -603,6 +602,12 @@ hr.fade-in {
 #team-photo #team-wrapper img {
   flex: 1 0 0;
   align-self: stretch;
+}
+
+@media (max-width: 768px) {
+  #faq {
+    width: 95vw !important;
+  }
 }
 
 .accordion {
@@ -669,6 +674,7 @@ hr.fade-in {
   display: inline-block;
   transition: all 0.3s ease, content 0.3s ease;
   transform: rotate(0deg);
+  padding-left: 20px;
 }
 .accordion .accordion-item.active .accordion-content {
   max-height: 150px;

@@ -560,7 +560,6 @@ $breakpoint-desktop-lg: 1920px;
       flex-shrink: 0;
       max-height: 300px;
       max-width: 375px;
-      width: 50%;
       height: auto;
       overflow: hidden;
       border-radius: 25px;
@@ -573,7 +572,11 @@ $breakpoint-desktop-lg: 1920px;
       }
     }
   }
-  
+  #faq{
+    @include respond-to('tablet'){
+      width: 95vw !important;
+    }
+  }
   .accordion {
     display: flex;
     flex-direction: column;
@@ -639,6 +642,7 @@ $breakpoint-desktop-lg: 1920px;
           display: inline-block;
           transition: all 0.3s ease, content 0.3s ease;
           transform: rotate(0deg);
+          padding-left: 20px;
         }
       }
       &.active .accordion-content {
